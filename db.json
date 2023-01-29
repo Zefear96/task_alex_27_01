@@ -8,81 +8,98 @@
       "id": 1
     }
   ],
-  
-       "products": [
-         {
-           "name": "NITRO 5 AN515-57",
-           "brand": "ACER",
-           "price": 94900,
-           "description": "15,6″ - 39,62 см\nПроцессор \tIntel® Core™ i5\nОперационная система \tLinux\nОбъем оперативной памяти \t8 GB\nТип жесткого диска \tSSD\nОбъем накопителя \t512 GB\nВидеоадаптер \tnVidia GeForce RTX\nЧипсет видеоадаптера \t3050\nОбъем памяти видеоадаптера \t4 GB",
-           "image": "https://cdn.svyaznoy.ru/upload/iblock/82b/361535507b1de4dc330eab7dbf6e8944.jpeg/resize/483x483/hq/",
-           "color": "black",
-           "id": 1
-         },
-         {
-           "name": "PREDATOR TRITON 300S",
-           "brand": "ACER",
-           "price": 110990,
-           "description": "Диагональ \t14″ - 35,56 см\nПроцессор \tIntel® Core™ i5\nОперационная система \tDOS\nОбъем оперативной памяти \t8 GB\nТип жесткого диска \tSSD\nОбъем накопителя \t512 GB\nВидеоадаптер \tnVidia GeForce RTX\nЧипсет видеоадаптера \t3060\nОбъем памяти видеоадаптера \t6 GB",
-           "image": "https://object.pscloud.io/cms/cms/Photo/img_0_62_2229_0_1_320.webp",
-           "color": "gray",
-           "id": 2
-         },
-         {
-           "name": "IDEAPAD 3",
-           "brand": "LENOVO",
-           "price": 45590,
-           "description": "Диагональ \t15,6″ - 39,62 см\nПроцессор \tIntel® Core™ i3\nОбъем оперативной памяти \t4 GB\nТип жесткого диска \tHDD\nОбъем накопителя \t1 TB\nВидеоадаптер \tIntel UHD Graphics",
-           "image": "https://softech.kg/image/cache/6c0ac9c83f329493a743dd886fe51912.jpg",
-           "color": "gray",
-           "id": 3
-         },
-         {
-           "name": "ZENBOOK 14 UX425J I385SUW",
-           "brand": "ASUS",
-           "price": 67990,
-           "description": "Диагональ \t14″ - 35,56 см\nПроцессор \tIntel® Core™ i3\nОперационная система \tWindows 10 Home\nОбъем оперативной памяти \t8 GB\nТип жесткого диска \tSSD\nОбъем накопителя \t512 GB\nВидеоадаптер \tIntel UHD Graphics",
-           "image": "https://object.pscloud.io/cms/cms/Photo/img_0_62_2285_0_6_320.webp",
-           "color": "black",
-           "id": 4
-         },
-         {
-           "name": "TUF GAMING F15 FX506H",
-           "brand": "ASUS",
-           "price": 99990,
-           "description": "\nДиагональ \t15,6″ - 39,62 см\nПроцессор \tIntel® Core™ i5\nОперационная система \tDOS\nОбъем оперативной памяти \t16 GB\nТип жесткого диска \tSSD\nОбъем накопителя \t512 GB\nВидеоадаптер \tnVidia GeForce RTX\nЧипсет видеоадаптера \t3050\nОбъем памяти видеоадаптера \t4 GB",
-           "image": "https://object.pscloud.io/cms/cms/Photo/img_0_62_2366_0_1_320.webp",
-           "color": "black",
-           "id": 5
-         },
-         {
-           "name": "SWIFT 3 SF314-43",
-           "brand": "ACER",
-           "price": 73990,
-           "description": "\nДиагональ \t14″ - 35,56 см\nПроцессор \tAMD® Ryzen™ 7\nОперационная система \tLinux\nОбъем оперативной памяти \t16 GB\nТип жесткого диска \tSSD\nОбъем накопителя \t512 GB\nВидеоадаптер \tAMD Radeon Graphics\nОбъем памяти видеоадаптера \tSMA (выделяется из операт. памяти)\n",
-           "image": "https://object.pscloud.io/cms/cms/Photo/img_0_62_2350_5_1_320.webp",
-           "color": "white",
-           "id": 6
-         },
-         {
-           "name": "EUROPE 240 G8 P41TUN",
-           "brand": "HP",
-           "price": 32990,
-           "description": "\nДиагональ \t14″ - 35,56 см\nПроцессор \tIntel® Pentium®\nОперационная система \tDOS\nОбъем оперативной памяти \t4 GB\nТип жесткого диска \tHDD\nОбъем накопителя \t1 TB\nВидеоадаптер \tIntel UHD Graphics\nЧипсет видеоадаптера \tUHD 605\nОбъем памяти видеоадаптера \t256 Mb",
-           "image": "https://object.pscloud.io/cms/cms/Photo/img_0_62_2422_4_1_320.webp",
-           "color": "black",
-           "id": 7
-         },
-         {
-           "name": "MACBOOK AIR 13.3\" 2020",
-           "brand": "APPLE",
-           "price": 88700,
-           "description": "Операционная система\tmacOS Big Sur\nМатериал корпуса\tметалл\nРАЗМЕРЫ\nГабариты (мм) (ширина Х высота Х толщина)\t212.4 x 304.1 x 16.1\nВес (г)\t1 290\nПРОЦЕССОР\nТип процессора\tApple M1\nТактовая частота (МГц)\t---\nКоличество ядер\t8\nПАМЯТЬ\nОперативная память (Гб)\t8\nВстроенная память (Гб)\t256 SSD",
-           "image": "https://login.kg/image/cache/catalog/new/Notebook/Apple/MacBook%20Air%202020%20M1/1-500x500.jpeg",
-           "color": "gray",
-           "id": 8
-         }
-       ]
-     
-
+  "products": [
+    {
+      "name": "NITRO 5 AN515-57",
+      "brand": "ACER",
+      "price": 94900,
+      "description": "15,6″ - 39,62 см\nПроцессор \tIntel® Core™ i5\nОперационная система \tLinux\nОбъем оперативной памяти \t8 GB\nТип жесткого диска \tSSD\nОбъем накопителя \t512 GB\nВидеоадаптер \tnVidia GeForce RTX\nЧипсет видеоадаптера \t3050\nОбъем памяти видеоадаптера \t4 GB",
+      "image": "https://cdn.svyaznoy.ru/upload/iblock/82b/361535507b1de4dc330eab7dbf6e8944.jpeg/resize/483x483/hq/",
+      "color": "black",
+      "id": 1
+    },
+    {
+      "name": "PREDATOR TRITON 300S",
+      "brand": "ACER",
+      "price": "110990",
+      "description": "Диагональ \t14″ - 35,56 смПроцессор \tIntel® Core™ i5Операционная система \tDOSОбъем оперативной памяти \t8 GBТип жесткого диска \tSSDОбъем накопителя \t512 GBВидеоадаптер \tnVidia GeForce RTXЧипсет видеоадаптера \t3060Объем памяти видеоадаптера \t6 GB",
+      "image": "https://object.pscloud.io/cms/cms/Photo/img_0_62_2229_0_1_320.webp",
+      "color": "gray",
+      "id": 2
+    },
+    {
+      "name": "IDEAPAD 3",
+      "brand": "LENOVO",
+      "price": 45590,
+      "description": "Диагональ \t15,6″ - 39,62 см\nПроцессор \tIntel® Core™ i3\nОбъем оперативной памяти \t4 GB\nТип жесткого диска \tHDD\nОбъем накопителя \t1 TB\nВидеоадаптер \tIntel UHD Graphics",
+      "image": "https://softech.kg/image/cache/6c0ac9c83f329493a743dd886fe51912.jpg",
+      "color": "gray",
+      "id": 3
+    },
+    {
+      "name": "ZENBOOK 14 UX425J I385SUW",
+      "brand": "ASUS",
+      "price": 67990,
+      "description": "Диагональ \t14″ - 35,56 см\nПроцессор \tIntel® Core™ i3\nОперационная система \tWindows 10 Home\nОбъем оперативной памяти \t8 GB\nТип жесткого диска \tSSD\nОбъем накопителя \t512 GB\nВидеоадаптер \tIntel UHD Graphics",
+      "image": "https://object.pscloud.io/cms/cms/Photo/img_0_62_2285_0_6_320.webp",
+      "color": "black",
+      "id": 4
+    },
+    {
+      "name": "TUF GAMING F15 FX506H",
+      "brand": "ASUS",
+      "price": 99990,
+      "description": "\nДиагональ \t15,6″ - 39,62 см\nПроцессор \tIntel® Core™ i5\nОперационная система \tDOS\nОбъем оперативной памяти \t16 GB\nТип жесткого диска \tSSD\nОбъем накопителя \t512 GB\nВидеоадаптер \tnVidia GeForce RTX\nЧипсет видеоадаптера \t3050\nОбъем памяти видеоадаптера \t4 GB",
+      "image": "https://object.pscloud.io/cms/cms/Photo/img_0_62_2366_0_1_320.webp",
+      "color": "black",
+      "id": 5
+    },
+    {
+      "name": "SWIFT 3 SF314-43",
+      "brand": "ACER",
+      "price": 73990,
+      "description": "\nДиагональ \t14″ - 35,56 см\nПроцессор \tAMD® Ryzen™ 7\nОперационная система \tLinux\nОбъем оперативной памяти \t16 GB\nТип жесткого диска \tSSD\nОбъем накопителя \t512 GB\nВидеоадаптер \tAMD Radeon Graphics\nОбъем памяти видеоадаптера \tSMA (выделяется из операт. памяти)\n",
+      "image": "https://object.pscloud.io/cms/cms/Photo/img_0_62_2350_5_1_320.webp",
+      "color": "white",
+      "id": 6
+    },
+    {
+      "name": "EUROPE 240 G8 P41TUN",
+      "brand": "HP",
+      "price": 32990,
+      "description": "\nДиагональ \t14″ - 35,56 см\nПроцессор \tIntel® Pentium®\nОперационная система \tDOS\nОбъем оперативной памяти \t4 GB\nТип жесткого диска \tHDD\nОбъем накопителя \t1 TB\nВидеоадаптер \tIntel UHD Graphics\nЧипсет видеоадаптера \tUHD 605\nОбъем памяти видеоадаптера \t256 Mb",
+      "image": "https://object.pscloud.io/cms/cms/Photo/img_0_62_2422_4_1_320.webp",
+      "color": "black",
+      "id": 7
+    },
+    {
+      "name": "MACBOOK AIR 13.3\" 2020",
+      "brand": "APPLE",
+      "price": 88700,
+      "description": "Операционная система\tmacOS Big Sur\nМатериал корпуса\tметалл\nРАЗМЕРЫ\nГабариты (мм) (ширина Х высота Х толщина)\t212.4 x 304.1 x 16.1\nВес (г)\t1 290\nПРОЦЕССОР\nТип процессора\tApple M1\nТактовая частота (МГц)\t---\nКоличество ядер\t8\nПАМЯТЬ\nОперативная память (Гб)\t8\nВстроенная память (Гб)\t256 SSD",
+      "image": "https://login.kg/image/cache/catalog/new/Notebook/Apple/MacBook%20Air%202020%20M1/1-500x500.jpeg",
+      "color": "gray",
+      "id": 8
+    }
+  ],
+  "users": [
+    {
+      "username": "Mario",
+      "password": "pass123",
+      "favorites": [],
+      "id": 1
+    }
+  ],
+  "posts": [
+    {
+      "title": "asa",
+      "content": "aaa",
+      "likes": 9,
+      "author": {
+        "id": 1,
+        "name": "Mario"
+      },
+      "id": 1
+    }
+  ]
 }
