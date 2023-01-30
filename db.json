@@ -88,18 +88,33 @@
       "password": "pass123",
       "favorites": [],
       "id": 1
+    },
+    {
+      "username": "Jsax",
+      "password": "123",
+      "favorites": []
     }
   ],
   "posts": [
     {
       "title": "asa",
       "content": "aaa",
-      "likes": 9,
+      "likes": 16,
       "author": {
         "id": 1,
         "name": "Mario"
       },
       "id": 1
+    },
+    {
+      "title": "Arssa",
+      "content": "asd farear fda asd",
+      "likes": 6,
+      "author": {
+        "id": 1,
+        "name": "Mario"
+      },
+      "id": 2
     }
   ]
 }
