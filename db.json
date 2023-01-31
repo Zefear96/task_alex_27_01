@@ -97,24 +97,24 @@
   ],
   "posts": [
     {
-      "title": "asa",
-      "content": "aaa",
-      "likes": 16,
-      "author": {
-        "id": 1,
-        "name": "Mario"
-      },
-      "id": 1
-    },
-    {
-      "title": "Arssa",
+      "title": "ArssaUPD",
       "content": "asd farear fda asd",
-      "likes": 6,
+      "likes": 7,
       "author": {
         "id": 1,
         "name": "Mario"
       },
       "id": 2
+    },
+    {
+      "title": "Jsax title UPD",
+      "content": "sad daewf sdad sad sa ",
+      "likes": 1,
+      "author": {
+        "id": 2,
+        "name": "Jsax"
+      },
+      "id": 3
     }
   ]
 }

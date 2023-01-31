@@ -123,7 +123,8 @@ function getUserFromLocaleStorage() {
        let user = localStorage.getItem("user");
        let userObj = JSON.parse(user);
        return userObj;
-     }
+};
+
      async function loginUser() {
        if (!loginUsernameInp.value.trim() || !loginPasswordInp.value.trim()) {
          alert("Some inputs are empty");
@@ -148,21 +149,19 @@ function getUserFromLocaleStorage() {
        checkLoginLogoutStatus();
        closeRegisterModalBtn.click();
        render()
-     }
+};
      
      loginUserBtn.addEventListener("click", loginUser);
-     //* login logic end
-     //* logout logic
+     
      logoutUserBtn.addEventListener("click", () => {
        localStorage.removeItem("user");
      });
-     //* logout logic end
-     //!account logic
+
      function checkUserForPostCreate() {
        let user = JSON.parse(localStorage.getItem("user"));
-       if (user) return user;
+       if (user) return user.id;
        return false;
-     }
+};
      
 function showCreatePanel() {
        let createPanel = document.querySelector("#create-panel");
@@ -217,35 +216,45 @@ async function render() {
        let res = await fetch(POSTS_API);
        let posts = await res.json();
 
-       posts.forEach((i) => {
+       posts.forEach(item => {
          postList.innerHTML += `
          <div class="card m-5" style="width: 18rem;">
              <div class="card-body">
-                 <h5 class="card-title">${i.title}</h5>
+                 <h5 class="card-title">${item.title}</h5>
                  <hr/>
-                 <p class="card-text">${i.content}</p>
-                 <p class="card-text"><b>Author</b> :${i.author.name}</p>
-                 <p class="card-text bi bi-hand-thumbs-up">${i.likes}</p>
+                 <p class="card-text">${item.content}</p>
+                 <p class="card-text"><b>Author</b> :${item.author.name}</p>
+                 <p class="card-text"><i class="bi bi-heart-fill" style = "color:red;"></i> ${item.likes}</p>
                  ${
-                   checkUserForPostCreate()
+                   checkUserForPostCreate() === item.author.id
                      ? `
-                     <a href="#" class="btn bi bi-hand-thumbs-up btn-outline-danger btn-like" id="edit-${i.id}">Like</a>
-                     <a href="#" class="btn btn-outline-dark btn-edit" id="edit-${i.id}">EDIT</a>
-                     <a href="#" class="btn btn-outline-danger btn-delete" id="del-${i.id}">DELETE</a>`
-                     : ""
+      
+                     <a href="#" class="btn btn-outline-dark btn-edit" id="edit-${item.id}
+                      ">EDIT</a>
+                     <a href="#" class="btn btn-outline-danger btn-delete" id="del-${item.id}">DELETE</a>`
+                  :
+                  ''
                  }
+                 ${
+                  checkUserForPostCreate()
+                    ? `
+                    <a href="#" class="btn btn-outline-danger btn-like" id="edit-${item.id}"><i class="bi bi-heart-fill"></i>  ${likeCount}</a>
+                    `
+                 :
+                 ''
+                }
              </div>
          </div>
          `;
        });
      
        if (posts.lenth === 0) return;
-       addDeleteEvent();
-       addLikeEvent();
+      addDeleteEvent();
+      editPostEvent()
+      addLikeEvent();
 };
      render();
-     //* render logic end
-     //* delete post logic
+
 async function deletePost(e) {
        let postId = e.target.id.split("-")[1];
        await fetch(`${POSTS_API}/${postId}`, {
@@ -259,72 +268,124 @@ function addDeleteEvent() {
        deleteProductBtn.forEach((i) => i.addEventListener("click", deletePost));
 };
 
-async function updatePost(e) {
+// edit posts
+let saveChangesBtn = document.querySelector('.save-changes-btn');
+
+function checkCreateAndSaveBtn() {
+       if (saveChangesBtn.id) {
+              addPostBtn.setAttribute('style', 'display: none;');
+              saveChangesBtn.setAttribute('style', 'display: block;');
+       } else {
+              addPostBtn.setAttribute('style', 'display: block;');
+              saveChangesBtn.setAttribute('style', 'display: none;');
+       };
+};
+checkCreateAndSaveBtn();
+
+async function addPostDataToForm(e) {
+
+      let postId = e.target.id.split('-')[1];
+      console.log(postId);
+
+      let res = await fetch(`${POSTS_API}/${postId}`); //retrive
+      let postObj = await res.json();
+      
+      console.log(postObj);
+
+      postTitle.value = postObj.title;
+      postContent.value = postObj.content;
+
+      saveChangesBtn.setAttribute('id', postId); // or productId bez raznizi
+      checkCreateAndSaveBtn();
 
 };
 
-function updatePostEvent() {
-  let updPostBtns = document.querySelector('.upd')
-}
+async function saveChanges(e) {
+      let updatedPostObj = {
+          title: postTitle.value,
+          content: postContent.value
+      };
+
+      await fetch(`${POSTS_API}/${e.target.id}`, {
+          method: 'PATCH',
+          body: JSON.stringify(updatedPostObj),
+          headers: {
+                'Content-Type': 'application/json;charset=utf-8'
+          }
+      });
+
+      postTitle.value = '';
+      postContent.value = '';
+ 
+      saveChangesBtn.removeAttribute('id');
+
+      render();
+};
+
+function editPostEvent() {
+      let editPostBtns = document.querySelectorAll('.btn-edit');
+      editPostBtns.forEach(item => item.addEventListener('click', addPostDataToForm))
+};
   
-  
+saveChangesBtn.addEventListener('click', saveChanges);
+
+let likeCount = '' //???????????????????
+// like logic
 async function likePost(e) {
-
-       let postId = e.target.id.split("-")[1];
-       let res = await fetch(POSTS_API);
-       let posts = await res.json();
-       let postObj = await posts.find((item) => item.id == postId);
   
-       let user = getUserFromLocaleStorage();
+  let postId = e.target.id.split("-")[1];
+  let likeId = e.target.id.split("-")[1];
+  // let likeBtn = document.querySelectorAll(".btn-like");
 
-      //  if (postObj) {
-      //         postObj.likes += 1;
-      //         user.favorites.push(postObj);
-      //         toLocaleStorage(user);
-              
-      // };
-  
-              postObj.likes += 1;
-              user.favorites.push(postObj);
-              toLocaleStorage(user);
+  let res = await fetch(POSTS_API);
+  let posts = await res.json();
+  let postObj = await posts.find((i) => i.id == postId);
 
-      //  if (user.favorites.some((item) => item.id == postObj.id)) {
-      //         postObj.likes -= 1;
-      //         user.favorites.filter(item => item.id != postObj.id);
-      //         toLocaleStorage(user);   
-      //  };
+  let user = getUserFromLocaleStorage();
 
-       let res2 = await fetch(USERS_API);
-       let user2 = await res2.json();
-       let userObj = await user2.find((item) => item.id == user.id);
-       
-       await fetch(`${USERS_API}/${userObj.id}`, {
-              method: "PATCH",
-              body: JSON.stringify({
-                favorites: {
-                        id: postObj.id,
-                        title: postObj.title,
-                        content: postObj.content,
-                        likes: postObj.likes
-                     }
-              }),
-              headers: {
-                     "Content-Type": "application/json;charset=utf-8",
-              },
-       });
+  let likedUserPost = user.favorites.find((i) => i.id == postId);
+  if (likedUserPost) {
+    postObj.likes -= 1;
+    if(postId == likeId) {
+      likeCount = 'Like'
+      // e.target.innerText = likeCount 
+    }
+    await fetch(`${POSTS_API}/${postId}`, {
+      method: "PATCH",
+      body: JSON.stringify(postObj),
+      headers: {
+        "Content-Type": "application/json;charset=utf-8",
+      },
+    });
+    let favorites = user.favorites.filter(i => i.id != postId)
+    user.favorites = favorites
+    toLocaleStorage(user)
+    render();
+    return;
+  }
+  if (postId == likeId) {
+    likeCount = 'Like';
+    // e.target.innerText = likeCount
+  }
 
-       await fetch(`${POSTS_API}/${postId}`, {
-              method: "PATCH",
-              body: JSON.stringify(postObj),
-              headers: {
-                     "Content-Type": "application/json;charset=utf-8",
-              },
-       });
+  postObj.likes += 1;
+  user.favorites.push(postObj);
+  toLocaleStorage(user);
 
-       render();
+  await fetch(`${POSTS_API}/${postId}`, {
+    method: "PATCH",
+    body: JSON.stringify(postObj),
+    headers: {
+      "Content-Type": "application/json;charset=utf-8",
+    },
+  });
+  render();
 }
+
 
 function addLikeEvent() {
-       let likeBtn = document.querySelectorAll(".btn-like");
-       likeBtn.forEach((item) => item.addEventListener("click", likePost));
+  let likeBtn = document.querySelectorAll(".btn-like");
+  likeBtn.forEach((i) => i.addEventListener("click", likePost));
+
 }
+//* like post logic end
